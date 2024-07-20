@@ -6,13 +6,45 @@ import likeRoutes from './routes/likes.js';
 import authRoutes from './routes/auth.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import multer from 'multer';
 
 const app = new express();
 
-app.use(cors()); // in case other url wanna connect server
-app.use(cookieParser());
-app.use(express.json()); // to send head body data
+// allow cors connection
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', true);
+  next();
+});
 
+app.use(
+  cors({
+    origin: 'http://localhost:3000',
+  }),
+);
+
+//
+app.use(cookieParser());
+
+// send head body data
+app.use(express.json());
+
+// upload to client directory
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../client/public/upload');
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.use('/api/upload', upload.single('file'), (req, res) => {
+  const file = req.file;
+  res.status(200).json(file.filename);
+});
 app.use('/api/users', userRoutes);
 app.use('/api/comments', commentRoutes);
 app.use('/api/posts', postRoutes);
