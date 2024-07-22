@@ -13,6 +13,7 @@ import { makeRequest } from '../../axios';
 import { AuthContext } from '../../context/authContext';
 
 const Post = ({ post }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [commentOpen, setCommentOpen] = useState(false);
   const { currentUser } = useContext(AuthContext);
   const { isPending, error, data } = useQuery({
@@ -35,12 +36,23 @@ const Post = ({ post }) => {
   const handleLike = async (e) => {
     mutation.mutate(data.includes(currentUser.id));
   };
+  const deleteMutation = useMutation({
+    mutationFn: (postId) => {
+      return makeRequest.delete('/posts/' + postId);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(['posts']);
+    },
+  });
+  const handleDelete = (postId) => {
+    deleteMutation.mutate(postId);
+  };
   return (
     <div className="post">
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={post.profilePic} alt="" />
+            <img src={'/upload/' + post.profilePic} alt="" />
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
@@ -51,7 +63,10 @@ const Post = ({ post }) => {
               <span className="date">{moment(post.createdAt).fromNow()}</span>
             </div>
           </div>
-          <MoreHorizIcon />
+          <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
+          {menuOpen && currentUser.id === post.userId && (
+            <button onClick={() => handleDelete(post.id)}>delete</button>
+          )}
         </div>
         <div className="content">
           <p>{post.desc}</p>
