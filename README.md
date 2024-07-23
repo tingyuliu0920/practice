@@ -38,3 +38,18 @@ This is a social application that includes features like login, register, postin
 - **JWT (JSON Web Token):** For secure authentication.
 - **bcryptjs:** For hashing passwords.
 - **multer:** For handling file uploads.
+
+## Prerequisites
+
+- Node.js (https://nodejs.org/)
+- npm (Node Package Manager, included with Node.js)
+- MySQL (https://www.mysql.com/)
+
+## Installation
+
+Clone the repository:
+
+```sh
+git clone https://github.com/tingyuliu0920/social-app.git
+cd social-app
+```
