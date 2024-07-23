@@ -34,16 +34,16 @@ This is a social application that includes features like login, register, postin
 - **bcryptjs:** For hashing passwords.
 - **multer:** For handling file uploads.
 
-### Screenshots
+## Screenshots
 
-## Login page
+### Login page
 
 ![login page](login.png)
 
-## Home page
+### Home page
 
 ![home page](home.png)
 
-## Profile page
+### Profile page
 
 ![profile page](profile.png)
