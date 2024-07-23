@@ -14,7 +14,7 @@ This is a social application that includes features like login, register, postin
   - Create posts
   - Delete posts
 - **Social Interactions:**
-  - Thumb up posts
+  - Add comments
   - Like posts
   - Follow users
   - Unfollow users
