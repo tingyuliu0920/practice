@@ -67,12 +67,6 @@ const Profile = () => {
             <div className="uInfo">
               <div className="left">
                 <a href="http://facebook.com">
-                  <FacebookTwoToneIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <InstagramIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
                   <TwitterIcon fontSize="large" />
                 </a>
                 <a href="http://facebook.com">
