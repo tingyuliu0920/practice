@@ -4,7 +4,6 @@ This is a social application that includes features like login, register, postin
 
 <center>
 <img src="home.png" alt="home.png" />
-<img src="profile.png" alt="profile.png" />
 </center>
 
 ## 📙 Features
