@@ -1,8 +1,13 @@
-# Social-App README
+# Social-App
 
 This is a social application that includes features like login, register, posting, deleting posts, adding comments, liking, following, unfollowing, and editing profiles.
 
-## Features
+<center>
+<img src="home.png" alt="home.png" />
+<img src="profile.png" alt="profile.png" />
+</center>
+
+## 📙 Features
 
 - **User Authentication:** Secure login and registration using JWT.
 - **Post Management:**
@@ -16,7 +21,7 @@ This is a social application that includes features like login, register, postin
 - **Profile Management:**
   - Edit your profile information
 
-## Tech Stack
+## ⚒️ Tech Stack
 
 ### Client-Side
 
@@ -33,17 +38,3 @@ This is a social application that includes features like login, register, postin
 - **JWT (JSON Web Token):** For secure authentication.
 - **bcryptjs:** For hashing passwords.
 - **multer:** For handling file uploads.
-
-## Screenshots
-
-### Login page
-
-![login page](login.png)
-
-### Home page
-
-![home page](home.png)
-
-### Profile page
-
-![profile page](profile.png)
